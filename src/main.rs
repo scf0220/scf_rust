@@ -16,7 +16,7 @@ async fn get_job(send_chan:Sender<u64>){
 }
 
 async fn sleep_for_test(){
-    tokio::time::sleep(Duration::from_secs(20)).await;
+    tokio::time::sleep(Duration::from_secs(30)).await;
 }
 
 async fn create_proof(mut receive_chan:Receiver<u64>){
