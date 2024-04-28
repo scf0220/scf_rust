@@ -2,6 +2,7 @@ use std::time::Duration;
 use tokio::sync::mpsc::{channel, Receiver, Sender};
 use futures::future::join_all;
 use chrono::Local;
+use std::thread;
 
 async fn get_job(send_chan:Sender<u64>){
     let mut new_job_poll_timer = tokio::time::interval(Duration::from_secs(1));
@@ -9,14 +10,14 @@ async fn get_job(send_chan:Sender<u64>){
         new_job_poll_timer.tick().await;
         send_chan.send(1).await.unwrap();
         println!("begin sleep {:?}",Local::now());
-        tokio::time::sleep(Duration::from_secs(5)).await;
+        thread::sleep(Duration::from_secs(5));
         println!("end sleep {:?}",Local::now());
     }
 
 }
 
 async fn sleep_for_test(){
-    tokio::time::sleep(Duration::from_secs(30)).await;
+    thread::sleep(Duration::from_secs(30));
 }
 
 async fn create_proof(mut receive_chan:Receiver<u64>){
