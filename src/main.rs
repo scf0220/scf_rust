@@ -10,7 +10,7 @@ async fn get_job(send_chan:Sender<u64>){
         new_job_poll_timer.tick().await;
         send_chan.send(1).await.unwrap();
         println!("begin sleep {:?}",Local::now());
-        thread::sleep(Duration::from_secs(5));
+        tokio::time::sleep(Duration::from_secs(5)).await;
         println!("end sleep {:?}",Local::now());
     }
 
@@ -27,7 +27,7 @@ async fn create_proof(mut receive_chan:Receiver<u64>){
         }
         let job_detail=job.unwrap();
         println!("begin handle {:?} {:?}",job_detail,Local::now());
-        thread::sleep(Duration::from_secs(30));
+        tokio::time::sleep(Duration::from_secs(30)).await;
         println!("end handle{:?} {:?}",job_detail,Local::now());
     }
 
