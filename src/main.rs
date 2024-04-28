@@ -16,9 +16,8 @@ async fn get_job(send_chan:Sender<u64>){
 
 }
 
-async fn sleep_for_test(){
-    thread::sleep(Duration::from_secs(30));
-}
+
+
 
 async fn create_proof(mut receive_chan:Receiver<u64>){
     loop {
@@ -28,7 +27,7 @@ async fn create_proof(mut receive_chan:Receiver<u64>){
         }
         let job_detail=job.unwrap();
         println!("begin handle {:?} {:?}",job_detail,Local::now());
-        sleep_for_test().await;
+        thread::sleep(Duration::from_secs(30));
         println!("end handle{:?} {:?}",job_detail,Local::now());
     }
 
