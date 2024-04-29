@@ -3,15 +3,19 @@ use tokio::sync::mpsc::{channel, Receiver, Sender};
 use futures::future::join_all;
 use chrono::Local;
 use std::thread;
+use log::{info, warn};
+use simple_logger;
+
 
 async fn get_job(send_chan:Sender<u64>){
     let mut new_job_poll_timer = tokio::time::interval(Duration::from_secs(1));
     loop {
         new_job_poll_timer.tick().await;
         send_chan.send(1).await.unwrap();
-        println!("begin sleep {:?}",Local::now());
+        info!("get_job_task: begin sleep");
+        // thread::sleep(Duration::from_secs(5));
         tokio::time::sleep(Duration::from_secs(5)).await;
-        println!("end sleep {:?}",Local::now());
+        info!("get_job_task: end sleep");
     }
 
 }
@@ -23,19 +27,20 @@ async fn create_proof(mut receive_chan:Receiver<u64>){
     loop {
         let job = receive_chan.recv().await;
         if job.is_none() {
-            println!("scf-log create proof: no proof {:?}",Local::now());
+            info!("scf-log create proof: no proof {:?}",Local::now());
         }
         let job_detail=job.unwrap();
-        println!("begin handle {:?} {:?}",job_detail,Local::now());
+        info!("create_proof_task: begin handle job_context={:?}",job_detail);
+        // thread::sleep(Duration::from_secs(30));
         tokio::time::sleep(Duration::from_secs(30)).await;
-        println!("end handle{:?} {:?}",job_detail,Local::now());
+        info!("create_proof_task: end handle ");
     }
 
 }
 
 #[tokio::main]
 async fn main() {
-
+    simple_logger::init()
     let (job_send_chan, job_recv_chan): (
         Sender<u64>,
         Receiver<u64>,
