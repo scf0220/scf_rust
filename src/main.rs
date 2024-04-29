@@ -14,7 +14,7 @@ async fn get_job(send_chan:Sender<u64>){
         new_job_poll_timer.tick().await;
         send_chan.send(1).await.unwrap();
         info!("get_job_task: begin sleep");
-        // thread::sleep(Duration::from_secs(10));
+        // thread::sleep(Duration::from_secs(10)); // 使用这种方式，等10s后另一个task才能接收到channel的数据
         tokio::time::sleep(Duration::from_secs(10)).await;
         info!("get_job_task: end sleep");
     }
