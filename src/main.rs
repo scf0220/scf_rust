@@ -40,7 +40,7 @@ async fn create_proof(mut receive_chan:Receiver<u64>){
 
 #[tokio::main]
 async fn main() {
-    simple_logger::init()
+    simple_logger::init();
     let (job_send_chan, job_recv_chan): (
         Sender<u64>,
         Receiver<u64>,
