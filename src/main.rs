@@ -3,8 +3,9 @@ use tokio::sync::mpsc::{channel, Receiver, Sender};
 use futures::future::join_all;
 use chrono::Local;
 use std::thread;
-use log::{info, warn};
+use log::{info};
 use simple_logger;
+use futures::{pin_mut, FutureExt};
 
 
 async fn get_job(send_chan:Sender<u64>){
@@ -13,8 +14,8 @@ async fn get_job(send_chan:Sender<u64>){
         new_job_poll_timer.tick().await;
         send_chan.send(1).await.unwrap();
         info!("get_job_task: begin sleep");
-        // thread::sleep(Duration::from_secs(5));
-        tokio::time::sleep(Duration::from_secs(5)).await;
+        // thread::sleep(Duration::from_secs(10));
+        tokio::time::sleep(Duration::from_secs(10)).await;
         info!("get_job_task: end sleep");
     }
 
@@ -22,17 +23,26 @@ async fn get_job(send_chan:Sender<u64>){
 
 
 
+async fn heart_beat_func(){
+    tokio::time::sleep(Duration::from_secs(60)).await;
+}
+async fn execute_proof_func(){
+    tokio::time::sleep(Duration::from_secs(30)).await;
+}
+
 
 async fn create_proof(mut receive_chan:Receiver<u64>){
     loop {
         let job = receive_chan.recv().await;
-        if job.is_none() {
-            info!("scf-log create proof: no proof {:?}",Local::now());
-        }
         let job_detail=job.unwrap();
         info!("create_proof_task: begin handle job_context={:?}",job_detail);
-        // thread::sleep(Duration::from_secs(30));
-        tokio::time::sleep(Duration::from_secs(30)).await;
+        let h_f=heart_beat_func().fuse();
+        let e_f=execute_proof_func().fuse();
+        pin_mut!(h_f,e_f);
+        futures::select! {
+        _ = h_f => info!("Heartbeat future completed"),
+        _ = e_f => info!("Execute proof future completed"),
+    }
         info!("create_proof_task: end handle ");
     }
 
