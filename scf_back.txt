@@ -1,0 +1,293 @@
+    Blocking waiting for file lock on package cache
+    Updating git repository `https://github.com/lanbones/halo2ecc-s.git`
+    Updating git repository `https://github.com/DelphinusLab/halo2ecc-s.git`
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished release [optimized] target(s) in 50.37s
+warning: the following packages contain code that will be rejected by a future version of Rust: mathru v0.6.10
+note: to see what the problems were, use the option `--future-incompat-report`, or run `cargo report future-incompatibilities --id 1`
+     Running `/home/okxdex/data/scf/zkdex-wasm-poc/target/release/okdexd prover -p=batch --config ./prover_config.toml`
+2024-05-31T12:58:19.242872816+08:00 INFO prover::cli_utils - 
+commit:6dfb6876a83bb8f6180e8945a7e7c7ad0a9c034a
+
+2024-05-31T12:58:19.242953337+08:00 INFO prover::cli_utils - creating prover, worker name: prover
+2024-05-31T12:58:19.242959509+08:00 INFO prover::cli_utils - prover type: Some(Batch), threads num: 1, cache pkey:true
+2024-05-31T12:58:19.263077750+08:00 INFO prover::common::utils - read params from ./data/K23.params
+2024-05-31T12:58:20.752913050+08:00 INFO prover::common::utils - params file md5: ed62f88fd5bb8c240a88c1fc71c7351a
+2024-05-31T12:58:39.745640770+08:00 INFO prover - interact_with_server_task server-size=1
+2024-05-31T13:01:24.272330672+08:00 INFO prover::client - trace_id "97296283c7b54702b8a2288c9a9bff94" receive job size=0.15MB time_cost=25.909527ms
+2024-05-31T13:01:25.037777111+08:00 INFO prover::prover_impl - first init zkruntime_cache server_index=0 zk_version=ZkRuntimeVersion { wasm_md5: Md5Digest([66, 196, 20, 47, 7, 177, 79, 25, 133, 230, 196, 153, 157, 245, 129, 68]), circuit_version: "dev-1.7.5" }
+2024-05-31T13:01:25.037910653+08:00 INFO prover - send job succ trace_id="97296283c7b54702b8a2288c9a9bff94" job_id=638 type=BatchProof
+2024-05-31T13:01:25.037927945+08:00 INFO prover - trace_id:"97296283c7b54702b8a2288c9a9bff94",starting to compute proof for blocks: job_type=BatchProof first_block=0 last_block=0 chunk_id=0 server_index=0
+2024-05-31T13:01:25.038114286+08:00 INFO prover::prover_impl - trace_id:"97296283c7b54702b8a2288c9a9bff94",create_proof,job_type:"BATCH_PROOF",block_numbers:[0, 0, 0, 0, 0]
+2024-05-31T13:01:25.038128383+08:00 INFO prover::prover_impl - "create_agg_proof: "  create_batch_proof first_block=0 last_block=0 proof_cnt=5
+2024-05-31T13:01:25.038165984+08:00 INFO prover::prover_impl - "create_agg_proof: " creating agg proof, block_number:0
+2024-05-31T13:01:25.038175241+08:00 INFO prover::prover_impl - "create_agg_proof: " creating agg proof, block_number:0
+preparing batch circuit (is final false):
+vkey named advices: [("shared_opcodes", 51), ("shared_operands", 52), ("context_input", 58), ("context_output", 59)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_opcodes", 51), ("shared_operands", 52), ("context_input", 58), ("context_output", 59)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+commitment equiv: [[0, 52, 1, 6], [0, 51, 1, 7], [0, 52, 2, 6], [0, 51, 2, 7], [0, 52, 3, 6], [0, 51, 3, 7], [4, 52, 5, 6], [4, 51, 5, 7], [4, 52, 6, 6], [4, 51, 6, 7], [4, 52, 7, 6], [4, 51, 7, 7], [0, 59, 4, 58]]
+commitment expose: [[0, 58], [4, 59]]
+commitment absorb: []
+target proof instance size: [[0], [], [], [], [0], [], [], []]
+hash agg info: None
+target proof max instance: [[0], [], [], [], [0], [], [], []]
+building aggregate circuit:
+instances [[[]], [], [], [], [[]], [], [], []]
+param verifier size 31
+agg config is []
+Start:   build aggregate verify circuit
+··Start:   default
+··End:     default .................................................................1.102s
+offset 6523861 5874404 324448
+End:     build aggregate verify circuit ............................................6.764s
+2024-05-31T13:01:31.804591633+08:00 INFO prover::prover_impl - begin load pkey from "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.batch0.circuit.data"
+read pk full from file "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.batch0.circuit.data"
+Start:   compress selectors ...
+End:     compress selectors ... ....................................................16.040µs
+Start:   fixed polys ...
+End:     fixed polys ... ...........................................................2.719s
+Start:   build pk time...
+··Start:   prepare delta_omegas
+··End:     prepare delta_omegas ....................................................1.197s
+··Start:   prepare permutations
+··End:     prepare permutations ....................................................2.110s
+··Start:   prepare poly
+··End:     prepare poly ............................................................644.992ms
+End:     build pk time... ..........................................................4.134s
+Start:   l poly
+End:     l poly ....................................................................1.965s
+Start:   prepare ev
+End:     prepare ev ................................................................356.161µs
+2024-05-31T13:01:44.591514954+08:00 INFO prover::prover_impl - end load pkey from "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.batch0.circuit.data"
+Start:   synthesize
+··Start:   synthesize
+····Start:   assign
+····End:     assign ................................................................821.624ms
+··End:     synthesize ..............................................................1.041s
+End:     synthesize ................................................................1.041s
+Start:   creating proof ...
+free is 24563417088,total is 25393692672
+··Start:   copy g_lagrange buffer
+··End:     copy g_lagrange buffer ..................................................26.456ms
+··Start:   prepare lookup buffer, count 3
+····Start:   instances and advices msm 11
+····End:     prepare lookup buffer, count 3 ........................................109.159ms
+····Start:   permute lookup comp 0
+····End:     permute lookup comp 0 .................................................892ns
+··End:     instances and advices msm 11 ............................................879.150ms
+··Start:   wait single lookups
+··End:     wait single lookups .....................................................9.849µs
+··Start:   single lookup msm 0 0
+····Start:   permute lookup tuple 3
+····End:     single lookup msm 0 0 .................................................191.922µs
+····Start:   wait tuple lookup
+····End:     permute lookup tuple 3 ................................................1.689s
+··End:     wait tuple lookup .......................................................1.689s
+··Start:   tuple lookup msm 3
+··End:     tuple lookup msm 3 ......................................................464.007ms
+··Start:   generate lookup z
+··End:     generate lookup z .......................................................275.526ms
+··Start:   prepare ntt
+··End:     prepare ntt .............................................................487.078µs
+··Start:   product permutation 5
+··End:     product permutation 5 ...................................................47.380µs
+··Start:   lookup z msm
+··End:     lookup z msm ............................................................318.499ms
+··Start:   lookups intt
+··End:     lookups intt ............................................................311.843ms
+··Start:   wait permutation_products
+··End:     wait permutation_products ...............................................3.270s
+··Start:   permutation z msm and intt
+··End:     permutation z msm and intt ..............................................647.154ms
+··Start:   random_poly
+··End:     random_poly .............................................................201.926ms
+··Start:   h_poly
+····Start:   instances and advices intt
+····End:     instances and advices intt ............................................364.997ms
+····Start:   evaluate_h setup
+····End:     evaluate_h setup ......................................................768.989µs
+····Start:   evaluate_h gates
+····End:     evaluate_h gates ......................................................592.434ms
+····Start:   evaluate_h prepare buffers for constants
+····End:     evaluate_h prepare buffers for constants ..............................255.545ms
+····Start:   evaluate_h permutation
+····End:     evaluate_h permutation ................................................1.075s
+····Start:   evaluate_h lookup
+····End:     evaluate_h lookup .....................................................600.957ms
+····Start:   vanishing msm 3
+····End:     vanishing msm 3 .......................................................469.692ms
+··End:     h_poly ..................................................................3.409s
+··Start:   compute eval 71
+··End:     compute eval 71 .........................................................959.988ms
+··Start:   multi open
+··End:     multi open ..............................................................1.836s
+2024-05-31T13:02:00.315478399+08:00 INFO circuits_batcher::proof - verify halo2 proof succeed
+End:     creating proof ... ........................................................14.626s
+2024-05-31T13:02:00.315652227+08:00 INFO prover::batch_proof_cache - "batch_proof_manager: ": write batch proof succ file="./data/batch_proof_circuit_version_dev-1.7.5_first_0_last_0_batch_index_0"
+2024-05-31T13:02:00.861170653+08:00 INFO prover::prover_impl - "create_agg_proof: " creating agg proof, block_number:0
+2024-05-31T13:02:00.861213644+08:00 INFO prover::prover_impl - "create_agg_proof: " creating agg proof, block_number:0
+preparing batch circuit (is final false):
+vkey named advices: [("shared_opcodes", 51), ("shared_operands", 52), ("context_input", 58), ("context_output", 59)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_opcodes", 51), ("shared_operands", 52), ("context_input", 58), ("context_output", 59)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: [("shared_operands", 6), ("shared_opcodes", 7), ("shared_index", 8)]
+vkey named advices: []
+commitment equiv: [[0, 52, 1, 6], [0, 51, 1, 7], [0, 52, 2, 6], [0, 51, 2, 7], [0, 52, 3, 6], [0, 51, 3, 7], [4, 52, 5, 6], [4, 51, 5, 7], [4, 52, 6, 6], [4, 51, 6, 7], [4, 52, 7, 6], [4, 51, 7, 7], [0, 59, 4, 58]]
+commitment expose: [[4, 59]]
+commitment absorb: [([8, 0, 10], [0, 58])]
+target proof instance size: [[0], [], [], [], [0], [], [], [], [1]]
+hash agg info: Some([(8, 0, 0x031ad80fc4ce41501389c2b3f36971c423003896104e933ac961e98330343d60)])
+target proof max instance: [[0], [], [], [], [0], [], [], [], [1]]
+building aggregate circuit:
+instances [[[]], [], [], [], [[]], [], [], [], [[0x031ad80fc4ce41501389c2b3f36971c423003896104e933ac961e98330343d60, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000]]]
+param verifier size 31
+agg config is []
+Start:   build aggregate verify circuit
+··Start:   default
+··End:     default .................................................................1.106s
+offset 7180316 6514488 353888
+End:     build aggregate verify circuit ............................................7.182s
+2024-05-31T13:02:08.044524314+08:00 INFO prover::prover_impl - begin load pkey from "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.batch1.circuit.data"
+read pk full from file "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.batch1.circuit.data"
+Start:   compress selectors ...
+End:     compress selectors ... ....................................................28.083µs
+Start:   fixed polys ...
+End:     fixed polys ... ...........................................................3.105s
+Start:   build pk time...
+··Start:   prepare delta_omegas
+··End:     prepare delta_omegas ....................................................1.124s
+··Start:   prepare permutations
+··End:     prepare permutations ....................................................2.103s
+··Start:   prepare poly
+··End:     prepare poly ............................................................592.608ms
+End:     build pk time... ..........................................................4.017s
+Start:   l poly
+End:     l poly ....................................................................2.001s
+Start:   prepare ev
+End:     prepare ev ................................................................215.316µs
+2024-05-31T13:02:21.318015861+08:00 INFO prover::prover_impl - end load pkey from "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.batch1.circuit.data"
+Start:   synthesize
+··Start:   synthesize
+····Start:   assign
+····End:     assign ................................................................965.551ms
+··End:     synthesize ..............................................................1.205s
+End:     synthesize ................................................................1.205s
+Start:   creating proof ...
+free is 24496308224,total is 25393692672
+··Start:   copy g_lagrange buffer
+··End:     copy g_lagrange buffer ..................................................61.161ms
+··Start:   prepare lookup buffer, count 3
+····Start:   instances and advices msm 11
+····End:     prepare lookup buffer, count 3 ........................................87.958ms
+····Start:   permute lookup comp 0
+····End:     permute lookup comp 0 .................................................831ns
+··End:     instances and advices msm 11 ............................................797.858ms
+··Start:   wait single lookups
+··End:     wait single lookups .....................................................2.345µs
+··Start:   single lookup msm 0 0
+····Start:   permute lookup tuple 3
+····End:     single lookup msm 0 0 .................................................222.098µs
+····Start:   wait tuple lookup
+····End:     permute lookup tuple 3 ................................................1.788s
+··End:     wait tuple lookup .......................................................1.788s
+··Start:   tuple lookup msm 3
+··End:     tuple lookup msm 3 ......................................................497.850ms
+··Start:   generate lookup z
+··End:     generate lookup z .......................................................297.670ms
+··Start:   prepare ntt
+··End:     prepare ntt .............................................................495.514µs
+··Start:   product permutation 5
+··End:     product permutation 5 ...................................................43.442µs
+··Start:   lookup z msm
+··End:     lookup z msm ............................................................319.976ms
+··Start:   lookups intt
+··End:     lookups intt ............................................................345.364ms
+··Start:   wait permutation_products
+··End:     wait permutation_products ...............................................3.071s
+··Start:   permutation z msm and intt
+··End:     permutation z msm and intt ..............................................665.603ms
+··Start:   random_poly
+··End:     random_poly .............................................................206.680ms
+··Start:   h_poly
+····Start:   instances and advices intt
+····End:     instances and advices intt ............................................393.239ms
+····Start:   evaluate_h setup
+····End:     evaluate_h setup ......................................................810.147µs
+····Start:   evaluate_h gates
+····End:     evaluate_h gates ......................................................593.341ms
+····Start:   evaluate_h prepare buffers for constants
+····End:     evaluate_h prepare buffers for constants ..............................245.215ms
+····Start:   evaluate_h permutation
+····End:     evaluate_h permutation ................................................1.079s
+····Start:   evaluate_h lookup
+····End:     evaluate_h lookup .....................................................619.472ms
+····Start:   vanishing msm 3
+····End:     vanishing msm 3 .......................................................464.784ms
+··End:     h_poly ..................................................................3.430s
+··Start:   compute eval 71
+··End:     compute eval 71 .........................................................766.050ms
+··Start:   multi open
+··End:     multi open ..............................................................1.808s
+2024-05-31T13:02:36.952774941+08:00 INFO circuits_batcher::proof - verify halo2 proof succeed
+End:     creating proof ... ........................................................14.368s
+2024-05-31T13:02:37.499615357+08:00 INFO prover::prover_impl - read vkey from memory "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.batch1.circuit.data"
+preparing batch circuit (is final true):
+vkey named advices: [("shared_opcodes", 51), ("shared_operands", 52), ("context_input", 58), ("context_output", 59)]
+vkey named advices: []
+commitment equiv: []
+commitment expose: []
+commitment absorb: [([1, 0, 10], [0, 58])]
+target proof instance size: [[4], [1]]
+hash agg info: Some([(1, 0, 0x10e81966fa4137c87693391e329a51b693201e08b4b508c8494ab0bea7cc325d)])
+target proof max instance: [[4], [1]]
+building aggregate circuit:
+instances [[[0x00000000000000000000000000000000000000000000000061708421c63baa38, 0x000000000000000000000000000000000000000000000000b39cd47830e2b51c, 0x000000000000000000000000000000000000000000000000b88786d9a9069d91, 0x0000000000000000000000000000000000000000000000003492540760dc11f1]], [[0x10e81966fa4137c87693391e329a51b693201e08b4b508c8494ab0bea7cc325d, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000000000000000000000000000000000000000000000000000000000, 0x0000000000deb5b4f8d12222cbab7c87c78f15e379ca8b74fadf6669daba728c, 0x0000000000526c6415223c27117ab61516a6800000000000000000155a53e270, 0x000000000000000000000000000016a117034868cee0d308ecb30fa57185f96f]]]
+param verifier size 1
+agg config is []
+Start:   build aggregate verify circuit
+··Start:   default
+··End:     default .................................................................1.091s
+hash_list before shadow instance [0x12146130b822d9940fd5a2ba175496442e0ed375ca0a309f102341ecce193026]
+offset 6361214 5290188 0
+End:     build aggregate verify circuit ............................................4.507s
+2024-05-31T13:02:42.007036624+08:00 INFO prover::prover_impl - begin load pkey from "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.final_batch.circuit.data"
+read pk full from file "./data/42c4142f07b14f1985e6c4999df58144_dev-1.7.5.final_batch.circuit.data"
+thread 'tokio-runtime-worker' panicked at 'assertion failed: `(left == right)`
+  left: `268435456`,
+ right: `4294967296`', /home/okxdex/.cargo/git/checkouts/halo2-gpu-specific-4d08aed75011eb52/9a81f60/halo2_proofs/src/poly/domain.rs:105:13
+stack backtrace:
+   0: rust_begin_unwind
+             at /rustc/871b5952023139738f72eba235063575062bc2e9/library/std/src/panicking.rs:593:5
+   1: core::panicking::panic_fmt
+             at /rustc/871b5952023139738f72eba235063575062bc2e9/library/core/src/panicking.rs:67:14
+   2: core::panicking::assert_failed_inner
+   3: core::panicking::assert_failed
+   4: halo2_proofs::poly::domain::EvaluationDomain<G>::new
+   5: halo2_proofs::plonk::CircuitData<C>::read
+   6: prover::prover_impl::read_pk_full
+   7: prover::prover_impl::create_batch_proof_internal
+   8: <prover::prover_impl::PlonkStepByStepProver as prover::ProverImpl>::create_proof::{{closure}}
+   9: prover::cli_utils::run_prover_impl::{{closure}}::{{closure}}
+  10: tokio::runtime::task::core::Core<T,S>::poll
+  11: tokio::runtime::task::harness::Harness<T,S>::poll
+  12: tokio::runtime::scheduler::multi_thread::worker::Context::run_task
+  13: tokio::runtime::context::scoped::Scoped<T>::set
+  14: tokio::runtime::context::runtime::enter_runtime
+  15: tokio::runtime::scheduler::multi_thread::worker::run
+  16: tokio::runtime::task::core::Core<T,S>::poll
+  17: tokio::runtime::task::harness::Harness<T,S>::poll
+  18: tokio::runtime::blocking::pool::Inner::run
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
