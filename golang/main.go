@@ -22,7 +22,7 @@ func main() {
 	}
 
 	// 私钥 (一定要保密)
-	privateKey, err := crypto.HexToECDSA("51a3a2416d01818757c86c897b88bd5bb0c8c819407dc9cab6b6df553ccd4c2c")
+	privateKey, err := crypto.HexToECDSA("输入你的私钥")
 	if err != nil {
 		log.Fatal(err)
 	}
